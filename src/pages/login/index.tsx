@@ -2,6 +2,8 @@ import { Link } from 'react-router';
 import { Input } from '../../components/input';
 import React from 'react';
 
+import { auth } from '../../services/firebaseConnection';
+
 export function Login() {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
