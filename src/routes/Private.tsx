@@ -40,7 +40,7 @@ export function Private({ children }: PrivateProps): any {
       }
     });
 
-    // (Boa prática) remover o listener quando o componente desmontar
+    // ( remover o listener quando o componente desmontar
     return () => {
       unsub();
     };
