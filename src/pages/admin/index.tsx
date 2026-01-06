@@ -14,12 +14,47 @@ import {
   deleteDoc,
 } from 'firebase/firestore';
 
+interface LinkProps {
+  id: string;
+  name: string;
+  url: string;
+  bg: string;
+  color: string;
+}
+
 export function Admin() {
   const [nameInput, setNameInput] = React.useState('');
   const [urlInput, setUrlInput] = React.useState('');
   const [textColorInput, setTextColorInput] = React.useState('#f1f1f1');
   const [backgroundColorInput, setBackgroundColorInput] =
     React.useState('#121212');
+
+  const [links, setLinks] = React.useState<LinkProps[]>([]);
+
+  React.useEffect(() => {
+    const linksRef = collection(db, 'links');
+    const queryRef = query(linksRef, orderBy('created', 'asc'));
+
+    const unsub = onSnapshot(queryRef, (snapshot) => {
+      let lista = [] as LinkProps[];
+
+      snapshot.forEach((doc) => {
+        lista.push({
+          id: doc.id,
+          name: doc.data().name,
+          url: doc.data().url,
+          bg: doc.data().bg,
+          color: doc.data().color,
+        });
+      });
+
+      setLinks(lista);
+    });
+
+    return () => {
+      unsub();
+    };
+  }, []);
 
   function handleRegister(e: React.FormEvent) {
     e.preventDefault();
