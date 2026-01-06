@@ -79,6 +79,11 @@ export function Admin() {
       });
   }
 
+  async function handleDeleteLink(id: string) {
+    const docRef = doc(db, 'links', id);
+    await deleteDoc(docRef);
+  }
+
   return (
     <div className="flex items-center flex-col min-h-screen pb-7 px-2">
       <Header />
@@ -159,17 +164,23 @@ export function Admin() {
 
       <h2 className="font-bold text-white mb-4 text-2xl ">Meus links</h2>
 
-      <article
-        className="flex items-center justify-between w-11/12 max-w-xl rounded py-3 px-2 mb-2 select-none"
-        style={{ backgroundColor: '#2563eb', color: '#fff' }}
-      >
-        <p>Canal do youtube</p>
-        <div>
-          <button className="border border-dashed p-1 rounded">
-            <FiTrash size={18} color="#fff" />
-          </button>
-        </div>
-      </article>
+      {links.map((item) => (
+        <article
+          key={item.id}
+          className="flex items-center justify-between w-11/12 max-w-xl rounded py-3 px-2 mb-2 select-none"
+          style={{ backgroundColor: item.bg, color: item.color }}
+        >
+          <p> {item.name}</p>
+          <div>
+            <button
+              className="border border-dashed p-1 rounded"
+              onClick={() => handleDeleteLink(item.id)}
+            >
+              <FiTrash size={18} color="#fff" />
+            </button>
+          </div>
+        </article>
+      ))}
     </div>
   );
 }
