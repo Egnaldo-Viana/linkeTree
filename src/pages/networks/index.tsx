@@ -10,6 +10,21 @@ export function Networks() {
   const [instagram, setInstagram] = React.useState('');
   const [youtube, setYoutube] = React.useState('');
 
+  React.useEffect(() => {
+    function loandLinks() {
+      const docRef = doc(db, 'social', 'link');
+      getDoc(docRef).then((snapshot) => {
+        if (snapshot.data() !== undefined) {
+          setFacebook(snapshot.data()?.facebook);
+          setInstagram(snapshot.data()?.instagram);
+          setYoutube(snapshot.data()?.youtube);
+        }
+      });
+    }
+
+    loandLinks();
+  }, []);
+
   function handleRegister(e: React.FormEvent) {
     e.preventDefault();
 
