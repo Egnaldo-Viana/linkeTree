@@ -1,73 +1,26 @@
-# React + TypeScript + Vite
+# 🔗 Dev Links – Projeto Linktree com Firebase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto foi desenvolvido em **React** durante o **curso do Sujeito Programador** e tem como objetivo criar uma aplicação no estilo **Linktree**, onde links e redes sociais são carregados dinamicamente a partir do **Firebase Firestore**.
 
-Currently, two official plugins are available:
+A aplicação exibe links personalizados, permitindo definir **cores de texto e fundo**, além de mostrar ícones de redes sociais em um layout simples, moderno e responsivo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Funcionalidades
+- Listagem dinâmica de links salvos no Firestore  
+- Links com cores e fundos personalizados  
+- Exibição de redes sociais (Facebook, Instagram e YouTube)  
+- Integração com Firebase Firestore  
+- Interface responsiva e fácil de usar  
 
-## React Compiler
+## 🛠️ Tecnologias utilizadas
+- **React**  
+- **TypeScript**  
+- **Firebase (Firestore)**  
+- **Tailwind CSS**  
+- **React Icons**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 💡 Objetivo
+Projeto desenvolvido como parte do **curso do Sujeito Programador**, com foco em praticar **React**, **TypeScript**, integração com banco de dados, uso de **hooks**, componentização e boas práticas no desenvolvimento front-end.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📦 Como visualizar
+Acesse o projeto pelo link:  
+https://linke-tree-brown.vercel.app/
